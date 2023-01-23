@@ -6,6 +6,8 @@ export class SearchService {
   private hltb = new HowLongToBeatService();
 
   search(query: string) {
-    return this.hltb.search(query);
+    const result = this.hltb.search(query);
+    const response = result.then((res) => res);
+    return response;
   }
 }
