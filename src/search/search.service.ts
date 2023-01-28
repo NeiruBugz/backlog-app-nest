@@ -1,13 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { HowLongToBeatService } from 'howlongtobeat';
+import { HowLongToBeatEntry, HowLongToBeatService } from 'howlongtobeat';
+import { sortById } from '../modules/utils';
 
 @Injectable()
 export class SearchService {
-  private hltb = new HowLongToBeatService();
+  private howLongToBeatService: HowLongToBeatService;
 
-  search(query: string) {
-    const result = this.hltb.search(query);
-    const response = result.then((res) => res);
-    return response;
+  constructor() {
+    this.howLongToBeatService = new HowLongToBeatService();
+  }
+
+  public async search(query: string): Promise<HowLongToBeatEntry[]> {
+    const response = await this.howLongToBeatService.search(query);
+    return sortById(response);
   }
 }
