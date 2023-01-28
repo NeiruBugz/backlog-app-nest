@@ -8,6 +8,7 @@ async function bootstrap() {
       'http://localhost:3000',
       'https://localhost:3000',
       'https://backlog-app.vercel.app',
+      'https://backlog-app-nest.vercel.app/',
     ],
     credentials: true,
     methods: ['GET', 'POST'],
