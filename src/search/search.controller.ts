@@ -7,6 +7,7 @@ export class SearchController {
 
   @Get(':query')
   search(@Param('query') query: string) {
+    console.log(query);
     return this.searchService.search(query);
   }
 }
