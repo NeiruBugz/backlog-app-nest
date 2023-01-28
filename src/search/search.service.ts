@@ -15,6 +15,6 @@ export class SearchService {
   search(query: string) {
     console.log(query);
     const r = this.htlbSearch(query);
-    console.log(r);
+    return r;
   }
 }
