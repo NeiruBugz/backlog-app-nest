@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { HowLongToBeatEntry, HowLongToBeatService } from 'howlongtobeat';
-import { sortById } from 'src/modules/utils';
+import { sortById } from '../modules/utils';
 
 @Injectable()
 export class SearchService {
