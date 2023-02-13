@@ -9,4 +9,9 @@ export class SearchController {
   search(@Param('query') query: string) {
     return this.searchService.search(query);
   }
+
+  @Get('details/:id')
+  getDetails(@Param('id') id: string) {
+    return this.searchService.getDetails(id);
+  }
 }

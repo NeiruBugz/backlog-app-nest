@@ -12,6 +12,13 @@ export class SearchService {
 
   public async search(query: string): Promise<HowLongToBeatEntry[]> {
     const response = await this.howLongToBeatService.search(query);
+    console.log(response);
     return sortById(response);
+  }
+
+  public async getDetails(title: string): Promise<HowLongToBeatEntry> {
+    const response = await this.howLongToBeatService.search(title);
+    const [result] = response.filter((entry) => entry.name === title);
+    return result;
   }
 }
